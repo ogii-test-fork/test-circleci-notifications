@@ -2,8 +2,5 @@ version: 2
 
 jobs:
   build:
-    machine: true
-    branches:
-      ignore: gh-pages
-    - steps:
-        - run: echo "Skipping tests on gh-pages branch"
+    machine:
+      image: ubuntu-1604:202007-01
