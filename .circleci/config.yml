@@ -2,7 +2,14 @@ version: 2
 
 jobs:
   build:
-    machine:
-      image: ubuntu-1604:202007-01
-    - steps:
-      - run: echo 1
+    docker:
+     - image: alpine
+
+    working_directory: /mnt/ramdisk
+
+    steps:
+      - run: |
+          echo '#!/bin/sh' > run.sh
+          echo 'echo Hello world!' >> run.sh
+          chmod +x run.sh
+      - run: ./run.sh
